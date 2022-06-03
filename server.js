@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const PORT = 8000;
+const cors = require("cors");
+
+app.use(cors());
 
 // ! This is the API OBJECT
 const rappers = {
@@ -34,6 +37,6 @@ app.get("/api/:name", (req, res) => {
     if (rappers[rapperName]) {
         res.json(rappers[rapperName]);
     } else {
-        res.json(rappers['unknown']);
+        res.json(rappers["unknown"]);
     }
 });
